@@ -17,15 +17,31 @@ const App = () => {
     }
 
     const handleClear = () => {
-        console.log("handleClear function")
+        setInput("0")
+        setOutput("")
+        setCalculatorData("")
     }
 
     const dotOperator = () => {
         console.log("dotOperator function")
     }
 
-    const handleNumbers = () => {
-        console.log("handleNumbers function")
+    const handleNumbers = (value) => {
+        if(!calculatorData.length) {
+            setInput(`${value}`)
+            setCalculatorData(`${value}`)
+        }
+        else {
+            if(value === 0 && (calculatorData === "0" || input === "0")) {
+                setCalculatorData(`${calculatorData}`)
+            }
+            else {
+                const lastChar = calculatorData.charAt(calculatorData.length - 1)
+                const isLastCharOperator = (lastChar === "*" || operators.includes(lastChar))
+                setInput(isLastCharOperator ? `${value}` : `${input}${value}`)
+                setCalculatorData(`${calculatorData}${value}`)
+            }
+        }
     }
 
     const handleOperators = () => {
