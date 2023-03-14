@@ -23,20 +23,21 @@ const calcData = [
 ]
 
 
-const Key = ({ keyData }) => {
+const Key = ({ keyData, handleInput }) => {
     return (
-        <button id={keyData.id} className="padButton">
+        <button id={keyData.id} className="padButton" key={keyData.id}
+        onClick={() => handleInput(keyData.value)}>
             {keyData.value}
         </button>
     )
 }
 
-const Keypad = () => {
+const Keypad = ({ handleInput }) => {
     return (
         <div className="keys">
             {
                 calcData.map(key => {
-                    return <Key id={key.id} keyData={key} />
+                    return <Key id={key.id} keyData={key} handleInput={handleInput} />
                 })
             }
         </div>
