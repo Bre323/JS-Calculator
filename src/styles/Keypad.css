@@ -1,0 +1,50 @@
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "clear clear divide multiply"
+    "seven eight nine subtract"
+    "four five six add"
+    "one two three equals"
+    "zero zero decimal equals";
+}
+
+.padButton {
+    background-color: #999;
+    font-size: 18px;
+    color: white;
+    margin: 2px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.padButton:hover {
+    opacity: 0.8;
+}
+
+.padButton:active {
+    opacity: 0.6;
+}
+
+#clear {
+    grid-area: clear;
+    background-color: #800;
+}
+
+#zero {
+    grid-area: zero;
+}
+
+#zero,
+#one, #two, #three,
+#four, #five, #six,
+#seven, #eight, #nine {
+    background-color: #555;
+}
+
+#equals {
+    grid-area: equals;
+    background-color: #008;
+}
