@@ -1,0 +1,22 @@
+.output {
+    background-color: darkgreen;
+    height: 55px;
+    margin: 10px;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.input, .result {
+    text-align: right;
+    color: white;
+    width: 100%;
+}
+
+.input {
+    font-size: 20px;
+}
+
+.result {
+    font-size: 24px;
+    margin-right: 5px;
+}
