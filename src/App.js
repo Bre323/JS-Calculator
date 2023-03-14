@@ -26,7 +26,24 @@ const App = () => {
     }
 
     const dotOperator = () => {
-        console.log("dotOperator function")
+        const lastChar = calculatorData.charAt(calculatorData.length - 1)
+        const formatedValue = (lastChar === "." || input.includes(".") ? `${calculatorData}` : `${calculatorData}.`)
+        
+        if(!calculatorData.length) {
+            setInput("0.")
+            setCalculatorData("0.")
+        }
+
+        else {
+            if(lastChar === "*" || operators.includes(lastChar)) {
+                setInput("0.")
+                setCalculatorData("0.")
+            }
+            else {
+                setInput(lastChar === "." || input.includes(".") ? `${input}` : `${input}.`)
+            }
+            setCalculatorData(formatedValue)
+        }
     }
 
     const handleNumbers = (value) => {
@@ -34,6 +51,7 @@ const App = () => {
             setInput(`${value}`)
             setCalculatorData(`${value}`)
         }
+
         else {
             if(value === 0 && (calculatorData === "0" || input === "0")) {
                 setCalculatorData(`${calculatorData}`)
@@ -64,6 +82,7 @@ const App = () => {
                     setCalculatorData(`${calculatorData.substring(0, calculatorData.length - 1)}${validOperator}`)
                 }
             }
+            
             else {
                 setCalculatorData(`${calculatorData}${validOperator}`)
             }
