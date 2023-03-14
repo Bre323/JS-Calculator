@@ -13,7 +13,10 @@ const App = () => {
 
 
     const handleSubmit = () => {
-        console.log("handleSubmit function")
+        const total = eval(calculatorData)
+        setInput(`${total}`)
+        setOutput(`${total}`)
+        setCalculatorData(`${total}`)
     }
 
     const handleClear = () => {
@@ -44,8 +47,27 @@ const App = () => {
         }
     }
 
-    const handleOperators = () => {
-        console.log("handleOperators function")
+    const handleOperators = (value) => {
+        if(calculatorData.length) {
+            setInput(`${value}`)
+            const beforeLastChar = calculatorData.charAt(calculatorData.length - 2)
+            const isBeforeLastCharOperator = (operators.includes(beforeLastChar) || beforeLastChar === "*")
+            const lastChar = calculatorData.charAt(calculatorData.length - 1)
+            const isLastCharOperator = (operators.includes(lastChar) || lastChar === "*")
+            const validOperator = (value === "x" ? "*" : value)
+
+            if((isLastCharOperator && value !== "-") || (isBeforeLastCharOperator && isLastCharOperator)) {
+                if(isBeforeLastCharOperator) {
+                    setCalculatorData(`${calculatorData.substring(0, calculatorData.length - 2)}${value}`)
+                }
+                else {
+                    setCalculatorData(`${calculatorData.substring(0, calculatorData.length - 1)}${validOperator}`)
+                }
+            }
+            else {
+                setCalculatorData(`${calculatorData}${validOperator}`)
+            }
+        }
     }
 
     const handleInput = (value) => {
