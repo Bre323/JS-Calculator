@@ -27,5 +27,5 @@ The project was built with React.
 - [x] My calculator should have several decimal places of precision when it comes to rounding (note that there is no exact standard, but you should be able to handle calculations like 2 / 7 with reasonable precision to at least 4 decimal places).
 
 
-### Live project link: https://drum-machine-rosy.vercel.app
-##### Codepen version: https://codepen.io/bre323/full/ExEqEjK
+### Live project link: https://js-calculator-ashen.vercel.app
+##### Codepen version: https://codepen.io/bre323/full/MWVNVag
