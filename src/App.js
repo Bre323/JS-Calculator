@@ -7,16 +7,18 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 const App = () => {
-    const [input, setInput] = React.useState("0")
+    const [input, setInput] = React.useState("")
     const [output, setOutput] = React.useState("")
     const [calculatorData, setCalculatorData] = React.useState("")
 
 
     const handleSubmit = () => {
-        const total = eval(calculatorData)
-        setInput(`${total}`)
-        setOutput(`${total}`)
-        setCalculatorData(`${total}`)
+        if(input && calculatorData) {
+            const total = eval(calculatorData)
+            setInput(`${total}`)
+            setOutput(`${total}`)
+            setCalculatorData(`${total}`)
+        }
     }
 
     const handleClear = () => {
@@ -47,7 +49,7 @@ const App = () => {
     }
 
     const handleNumbers = (value) => {
-        if(!calculatorData.length) {
+        if(!calculatorData.length || (value !== 0 && (calculatorData === '0' || input === '0'))) {
             setInput(`${value}`)
             setCalculatorData(`${value}`)
         }
